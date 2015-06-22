@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block titulo %} CTM{% endblock %}
+
+
+    {% block contenido %}
+       <div class="jumbotron">
+          <h3>tipo de movimiento</h3>
+            <p><a href="{% url 'vista_tipo_movimiento_add'%}"><h3>Agregar </h3></a></p>
+	       {% if lista_tipo_movimiento  %}
+     	      {% for dt in lista_tipo_movimiento%}
+      		<p><h4>{{ dt.tipo}}</h4> <button><a href="{% url 'vista_tipo_movimiento_edit' dt.id %}">Actualizar</a></button>
+
+      		 <button  onClick="if (confirm('Esta seguro de quiere eliminar {{dt.tipo}}!')){window.location.href = '{% url 'vista_tipo_movimiento_del' dt.id %}';};"><i class="icon-minus-sign"></i>Dar de baja</button></p>
+
+
+     	 	{% endfor %}
+
+    	{% else %}
+    	Nose ha encontrado la lista tipo de movimiento
+	   {% endif %}
+  </div>
+
+{% endblock %}

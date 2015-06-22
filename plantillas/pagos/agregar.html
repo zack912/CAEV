@@ -1,0 +1,364 @@
+{% extends 'base.html' %}
+
+
+{% block titulo%} Agregar {% endblock %}
+
+{% block contenido %}
+<br>
+<br>
+<div class="col-sm-3">
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Identificar Usuario</h3>
+  </div>
+  <div class="panel-body">
+              <label for="buscar">Escribe el numero contrato</label>
+              <input disable="" id="id_contrato" type="text" class="form-control" >
+              <label for="digito">Escribe el digito verificador</label>
+              <input id="id_digito" type="text" class="form-control" >
+              <br>
+              <button id="btn_zona" type="button" class="btn btn-primary"  >Buscar Usuarios</button>
+              
+  </div>
+</div>
+
+
+
+
+<!-- -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Ingrese los datos</h3>
+  </div>
+  <div class="panel-body">
+	<form method = "POST">
+		{%csrf_token%}
+    <!--<label for="id_cliente">ID:</label>
+    <input id="id_cliente" type="text" class="form-control" disabled>
+    <label for="id_nombre">Nombre:</label>
+    <input id="id_nombre" type="text" class="form-control" disabled>
+		<label for="id_direccion">Direccion:</label>
+    <input id="id_calle" type="text" class="form-control" disabled>-->
+    {{form.as_p}}
+		<input  class="btn btn-primary" type = "submit" value = "Guardar">
+	</form>     
+  </div>
+</div>
+
+
+</div>
+<div class="col-sm-9">
+      <script type="application/processing" id="pro">
+PImage img;  // Declare variable "a" of type PImage
+
+void setup() {
+  size(840, 670);
+  // The image file must be in the data folder of the current sketch 
+  // to load successfully
+  img = loadImage("/static/img/recibo.jpg");  // Load the image into the program  
+  
+}
+
+void draw() {
+  // Displays the image at its actual size at point (0,0)
+  image(img, 0, 0);
+  textSize(12);
+
+  fill(0, 0, 0);
+  text(nombre, 80, 140);   //extrae de cliente
+  fill(0, 0, 0);
+  text(direccion, 90, 158); // extrae de cliente
+  fill(0, 0, 0);
+  text(municipio, 95, 175);  // extrae de dato del cliente Municipio
+  fill(0, 0, 0);
+  text(rfc, 60, 190);  // extrae de cliente
+  fill(0, 0, 0);
+  text(telefono, 270, 191);   // extrae de cliente
+
+  fill(0, 0, 0);
+  text(sector, 460, 158);  //extrae de sector en cliente
+  fill(0, 0, 0);
+  text(ruta, 490, 158);  //se extrae ruta de cliente
+  fill(0, 0, 0);
+  text(folio, 560, 158); //ingresa folio
+  fill(0, 0, 0);
+  text(tservicio, 637, 158); // se extrae de tipo servicio
+  fill(0, 0, 0);
+  text(tusuario, 657, 158); // tipo usuario
+  fill(0, 0, 0);
+  text(contrato, 710, 158);  // se extrae de contrato en cliente
+  fill(0, 0, 0);
+  text(dv, 785, 158);   // digito verfificador de cliente
+  fill(0, 0, 0);
+  text(observaciones, 450, 210);    // ingresa observaciones 
+
+
+  fill(0, 0, 0);
+  text(norecibo, 40, 227);   // extrae de cliente norecibo
+  fill(0, 0, 0);
+  text(lanterior, 140, 227);   // ingresa dato lectura anterior
+  fill(0, 0, 0);
+  text(lactual, 240, 227);  // ingresa dato lectura actual
+  fill(0, 0, 0);
+  text(consumo, 340, 227);  // diferencia entre lectura actual menos el anterior = consumo m3
+
+  //------------recibo emitido----------------
+  fill(0, 0, 0);
+  text(reconcepto1, 200, 380);  //catalogo de concepto1
+  fill(0, 0, 0);
+  text(reconcepto2, 200, 400);  //catalogo de concepto2 
+  fill(0, 0, 0);
+  text(reconcepto3, 200, 420);  //catalogo de concepto3
+  fill(0, 0, 0);
+  text(reconcepto4, 200, 437);  //catalogo de concepto4  
+  fill(0, 0, 0);
+  text(reconcepto5, 200, 455);  //catalogo de concepto5
+  fill(0, 0, 0);
+  text(reconcepto6, 200, 473);  //catalogo de concepto6  
+  fill(0, 0, 0);
+  text(reconcepto7, 200, 490);  //catalogo de concepto7
+  fill(0, 0, 0);
+  text(reconcepto8, 200, 507);  //catalogo de concepto8
+  
+  //------------importe recibo emitido---------
+  fill(0, 0, 0);
+  text(reimporte1, 260, 380);  //importe1
+  fill(0, 0, 0);
+  text(reimporte2, 260, 400);  //importe2
+  fill(0, 0, 0);
+  text(reimporte3, 260, 420);  //importe3
+  fill(0, 0, 0);
+  text(reimporte4, 260, 437);  //importe4
+  fill(0, 0, 0);
+  text(reimporte5, 260, 455);  //importe5
+  fill(0, 0, 0);
+  text(reimporte6, 260, 473);  //importe6
+  fill(0, 0, 0);
+  text(reimporte7, 260, 490);  //importe7
+  fill(0, 0, 0);
+  text(reimporte8, 260, 507);  //importe8
+
+  //------------Modificacion----------------
+  fill(0, 0, 0);
+  text(ctmovimiento1, 450, 380);  //ctipo movimiento1
+  fill(0, 0, 0);
+  text(ctmovimiento2, 450, 400);  //ctipo movimiento2 
+  fill(0, 0, 0);
+  text(ctmovimiento3, 450, 420);  //ctipo movimiento3
+      
+  //------------importe modificacion---------
+  fill(0, 0, 0);
+  text(importemod1, 510, 380);  //importemod1
+  fill(0, 0, 0);
+  text(importemod2, 510, 400);  //importemod2
+  fill(0, 0, 0);
+  text(importemod3, 510, 420);  //importemod3
+  
+  
+  //------------pago a efectuar----------------
+  fill(0, 0, 0);
+  text(peconcepto1, 650, 380);  //concepto1
+  fill(0, 0, 0);
+  text(peconcepto2, 650, 400);  //concepto2 
+  fill(0, 0, 0);
+  text(peconcepto3, 650, 420);  //concepto3
+  fill(0, 0, 0);
+  text(peconcepto4, 650, 437);  //concepto4  
+  fill(0, 0, 0);
+  text(peconcepto5, 650, 455);  //concepto5
+  fill(0, 0, 0);
+  text(peconcepto6, 650, 473);  //concepto6  
+  fill(0, 0, 0);
+  text(peconcepto7, 650, 490);  //concepto7
+  fill(0, 0, 0);
+  text(peconcepto8, 650, 507);  //concepto8
+  
+  //------------importe pago efectuar---------
+  fill(0, 0, 0);
+  text(peimporte1, 710, 380);  //import1
+  fill(0, 0, 0);
+  text(peimporte2, 710, 400);  //importe2
+  fill(0, 0, 0);
+  text(peimporte3, 710, 420);  //importe3
+  fill(0, 0, 0);
+  text(peimporte4, 710, 437);  //importe4
+  fill(0, 0, 0);
+  text(peimporte5, 710, 455);  //importe5
+  fill(0, 0, 0);
+  text(peimporte6, 710, 473);  //importe6
+  fill(0, 0, 0);
+  text(peimporte7, 710, 490);  //importe7
+  fill(0, 0, 0);
+  text(peimporte8, 710, 507);  //importe8
+   fill(0, 0, 0);
+  text(peimporte8, 710, 530); //Total a pagar
+
+  fill(0, 0, 0);         
+  text(totalletra, 460, 564);  //cantidad con letra 
+   
+  fill(0, 0, 0)
+  text(mrezago, 125, 387);   //ingresa dato meses de razago
+  fill(0, 0, 0)
+  text(mfacturacion, 50, 430); //ingreso dato facturacion del mes
+
+//----------------fecha de registro----------------
+  fill(0, 0, 0);         
+  text(dia, 40, 507); // dia
+  fill(0, 0, 0);         
+  text(mes, 90, 507); // mes
+  fill(0, 0, 0);         
+  text(anio, 140, 507); // año
+  
+  fill(0, 0, 0);         
+  text(elaboro, 260, 550); // elaboro
+  fill(0, 0, 0);         
+  text(puestoe, 260, 564); //puestoE
+  
+  fill(0, 0, 0);         
+  text(autorizo, 260, 605); // autorizo
+  fill(0, 0, 0);         
+  text(puestoa, 260, 620);//puesto
+
+  
+
+  
+  // Displays the image at point (0, height/2) at half of its size
+  //image(img, 0, height/2, img.width/2, img.height/2);
+}
+</script>
+
+
+<canvas width="200" height="200"></canvas></p>
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+
+</div>
+
+
+
+{% endblock %}
+
+	{% block js%}
+
+       <script type="text/javascript">
+           
+          $(document).ready(function(){
+
+               
+            $( "#btn_zona" ).click(function() {
+              var txt_contrato=document.getElementById("id_contrato").value;
+              var txt_digito=document.getElementById("id_digito").value;
+
+                if (txt_contrato != "" && txt_digito != "") {
+                  
+                $.ajax({
+                  type:"GET",
+                  contentType:"application/json",
+                  dateType:"json",
+                  url:"/ws/cliente/contrato/"+txt_contrato,
+                  success:function(response){
+                  for(var i=0;i<response.length;i++){
+                    //console.log(response[i].fields.Nombre);
+                    $("#id_nombre").attr("value",response[0].fields.Nombre);
+                    nombre = response[0].fields.Nombre;
+                    $("#id_calle").attr("value",response[0].fields.Calle);
+                    direccion = response[0].fields.Calle;
+                    $("#id_cliente").attr("value",response[0].fields.pk);
+                    sector = response[0].fields.sector;
+                    contrato  = response[0].fields.Contrato;
+                    digito = response[0].fields.Dig_verf;
+                    //alert(response[0].fields.tipo_usuario+" "+response[0].fields.tipo_servicio);
+                    tusuario = response[0].fields.tipo_usuario;
+                    tservicio = response[0].fields.tipo_servicio;
+                    ruta = response[0].fields.ruta;
+                    dv = response[0].fields.Dig_verf;
+                    rfc = response[0].fields.RFC;
+                    municipio = response[0].fields.Municipio;
+                    telefono = response[0].fields.Telefono;
+                      /*
+                            $.ajax({
+                            type:"GET",
+                            contentType:"application/json",
+                            dateType:"json",
+                            url:"/ws/tipo_usuario/"+response[0].fields.tipo_usuario,
+                            success:function(response2){
+                            for(var i=0;i<response2.length;i++){
+                              tusuario = response2[0].fields.nombre;
+
+
+                              }//for end
+                              }//success
+
+                            $.ajax({
+                            type:"GET",
+                            contentType:"application/json",
+                            dateType:"json",
+                            url:"/ws/tipo_servicio/"+response[0].fields.tipo_usuario,
+                            success:function(response3){
+                            for(var i=0;i<response3.length;i++){
+                              tservicio = response3[0].fields.nombre;
+
+
+                              }//for end
+                              }//success
+
+      */
+
+
+
+                    }//for end
+                    }//success
+
+
+
+
+
+                  });
+
+
+                }else{
+                  alert("Ingrese una contrato y digito");
+                }
+               
+
+                }); //click
+                
+            
+
+              $( "#id_observaciones" ).keyup(function() {
+                observaciones = $("#id_observaciones").val();
+              });
+
+
+              $( "#id_No_Recibo" ).keyup(function() {
+                norecibo = $("#id_No_Recibo").val();
+              });
+
+              $( "#id_Lect_Anterior" ).keyup(function() {
+                lanterior = $("#id_Lect_Anterior").val();
+              });
+
+              $( "#id_Lect_Actual" ).keyup(function(){
+                lactual = $("#id_Lect_Actual").val();
+                var cm3 =  parseInt($("#id_Lect_Actual").val()) - parseInt($("#id_Lect_Anterior").val());
+                if (cm3 >= 0) {
+                $("#id_Consumo_M3").val(cm3);
+
+
+                }else{
+                $("#id_Consumo_M3").val("0");                  
+                }
+                
+                
+              });
+
+
+           
+          });
+           </script>
+
+
+
+
+  	{% endblock %}
+

@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+
+{% block titulo %} Actualizar {% endblock %}
+	{%block contenido%}
+		<div class="jumbotron">
+        	<h3>Actualizando datos</h3>
+				<form method="POST">
+					{%csrf_token%}
+					{{form.as_p}}
+					<input type="submit" value=" Guardar">
+				</form>
+		</div>
+	{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block titulo %} CTS{% endblock %}
+
+{% block contenido %}
+   <div class="jumbotron">
+        <h3>Tipo de Servicio</h3>
+	
+	       <p><a href="{% url 'vista_tipo_servicio_add'%}"><h4>Agregar </h4></a></p>
+	     {% if lista_tipo_servicio  %}
+          {% for dt in lista_tipo_servicio %}
+      	   <p>  <h4>{{ dt.nombre}}</h4> <button>  <a href="{% url 'vista_tipo_servicio_edit' dt.id %}">Actualizar</a></button>
+
+      	    <button  onClick="if (confirm('Esta seguro de quiere eliminar {{dt.nombre}}!')){window.location.href = '{% url 'vista_tipo_servicio_del' dt.id %}';};"><i class="icon-minus-sign"></i>Dar de baja</button> </p>
+            
+          {% endfor %}
+      
+        {% else %}
+          Nose ha encontrado la lista tipo de servicio
+	     {% endif %}
+    </div>
+
+ {% endblock %}

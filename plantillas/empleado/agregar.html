@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Agregar {% endblock %}
+
+{% block contenido %}
+	<form method="POST">
+		{%csrf_token%}
+		<div class="page-header">
+       		 <h3>Ingrese los datos</h3>
+       	</div>
+			<div class="row">
+        	   <div class="col-sm-5">
+				  <div class="panel panel-primary">
+  			        <div class="panel-heading"></div>  			         
+  					<div class="panel-body">
+    				 <h4>&nbsp;Datos Personales del Empleado&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+    				  {{form.No_empleado.label}}
+    				  {{form.No_empleado.errors}}
+		              {{form.No_empleado}}
+		              <br>
+		              <br>
+		    		  {{form.Nombre.label}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    		  {{form.Nombre.errors}}
+		              {{form.Nombre}}
+		              <br>
+		              <br>		              
+		              {{form.Direccion.label}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		              {{form.Direccion.errors}}
+		              {{form.Direccion}}
+		              <br>
+		              <br>
+		              {{form.Municipio.label}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		              {{form.Municipio.errors}}
+		              {{form.Municipio}}
+		              <br>
+		              <br>
+		              {{form.Telefono.label}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		              {{form.Telefono.errors}}
+		              {{form.Telefono}}
+		              <br>
+		              <br>
+		              {{form.Sexo.label}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		              {{form.Sexo.errors}}
+		              {{form.Sexo}}
+		              <br>
+		              <br>
+		              {{form.RFC.label}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		              {{form.RFC.errors}}
+		              {{form.RFC}}
+		              <br>
+		              <br>
+		              {{form.CURP.label}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		              {{form.CURP.errors}}
+		              {{form.CURP}}
+		              <br>
+		              <br>
+ 			 		</div>
+
+				  </div>
+			 	   <input class="btn btn-primary" type="submit" value="Guardar">
+				</div>
+
+			<div class="col-sm-5">
+          <div class="panel panel-primary">
+           <div class="panel-heading"></div>
+            <div class="panel-body">
+              <h4>&nbsp;&nbsp;&nbsp;Datos de Identificacion de usuario &nbsp;&nbsp;&nbsp;&nbsp;</h4>
+             		  {{form.Departamento.label}}
+             		   {{form.Departamento.errors}}
+		              {{form.Departamento}}
+		              <br>
+		              <br>
+		              {{form.Puesto.label}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		              {{form.Puesto.errors}}
+		              {{form.Puesto}}
+		              <br>
+		              <br>
+		              {{form.Perfil.label}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		              {{form.Perfil.errors}}
+		              {{form.Perfil}}
+		              <br>
+		              <br>
+		              {{form.Nomb_User.label}}&nbsp;&nbsp;
+		              {{form.Nomb_User.errors}}
+		              {{form.Nomb_User}}
+		              <br>
+		              <br>
+		              {{form.Contrasenia.label}}&nbsp;
+		              {{form.Contrasenia.errors}}
+		              {{form.Contrasenia}}
+		              <br>
+		              <br>
+		              <br>
+		              <br>
+		              <br>
+		              <br>
+		              <br>
+		              <br>
+		          </div>
+		        </div>
+          	</div>          
+          </div>
+        </div>
+      </div><!-- /.col-sm-4 -->
+        
+	</div><!--// termina col-sm=5 -->
+
+		</form>
+
+{% endblock %}

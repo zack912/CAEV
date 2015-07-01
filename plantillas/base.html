@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/static/bootstrap/img/CAEV.ico">
+
+    <title>{% block titulo %} {% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/bootstrap/css/navbar.css" rel="stylesheet">
+    <script src="/static/bootstrap/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>    
+    <script src="/static/js/processing.js"></script>     
+  </head>
+  <body>
+<div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">CAEV</a>
+
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Altas<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="{% url 'vista_cliente_add' %}">Usuarios</a></li>
+                  
+                  <li><a href="{%url 'vista_lista_empleado_add'%}">Empleados</a></li>    
+                </ul>
+              </li>
+              <li><a href="{% url 'vista_pagos_add' %}">Pagos</a></li>
+             
+             <!--
+             
+             <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pagos<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Mensual</a></li>
+                  
+                  <li><a href="#">Anual</a></li>    
+                </ul>
+              </li>
+             
+             -->
+             
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Historial de consumo<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="{% url 'vista_pagos_mensual' %}">Mensual</a></li>
+                  
+                  <li><a href="{% url 'vista_pagos_anual' %}">Anual</a></li>    
+                </ul>
+              </li>
+             
+             
+             
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catalogos<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{%url 'vista_tipo_servicio_index' %}"> Tipo de Servicio</a></li>
+                    <li><a href="{%url 'vista_tipo_usuario_index' %}"> Tipo de Usuario</a></li>
+                    <li><a href="{%url 'vista_diametro_toma_index' %}"> Diametro de la Toma</a></li>
+                    <li><a href="{%url 'vista_marca_medidor_index' %}"> Marca de Medidor</a></li>
+                    <li><a href="{%url 'vista_consumo_promedio_index' %}"> Consumo Promedio</a></li>
+                    <li><a href="{%url 'vista_concepto_pago_index' %}"> Concepto pago</a></li>
+                    <li><a href="{%url 'vista_tipo_movimiento_index' %}"> Tipo movimiento</a></li>
+
+                </ul>
+              </li>
+              
+              <li><a href="{%url 'vista_lista_cliente_activos'%}">Consultar</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="{%url 'logout'%}">Cerrar Sesion</a></li>
+          </ul>
+            <!--<ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="./">Default</a></li>
+              <li><a href="../navbar-static-top/">Static top</a></li>
+              <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+            </ul>-->
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+  		{% block contenido%}
+  		{% endblock %}
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  {% block js%}
+
+  {% endblock %}
+
+
+  </body>
+</html>

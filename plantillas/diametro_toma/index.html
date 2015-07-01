@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% block titulo %} CDT{% endblock %}
+
+
+    {% block contenido %}
+       <div class="jumbotron">
+          <h3>Diametro Toma</h3>
+            <p><a href="{% url 'vista_diametro_toma_add'%}"><h3>Agregar </h3></a></p>
+	       {% if lista_diametro_toma  %}
+     	      {% for dt in lista_diametro_toma %}
+      		<p><h4>{{ dt.nombre}}</h4> <button><a href="{% url 'vista_tipo_servicio_edit' dt.id %}">Actualizar</a></button>
+
+      		 <button  onClick="if (confirm('Esta seguro de quiere eliminar {{dt.nombre}}!')){window.location.href = '{% url 'vista_diametro_toma_del' dt.id %}';};"><i class="icon-minus-sign"></i>Dar de baja</button></p>
+
+
+     	 	{% endfor %}
+
+    	{% else %}
+    	Nose ha encontrado la lista diametro toma
+	   {% endif %}
+  </div>
+
+{% endblock %}
+        

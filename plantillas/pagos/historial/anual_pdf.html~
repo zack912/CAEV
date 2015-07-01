@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>
+			{{titulo}}
+		</title>
+	<style type="text/css">
+
+		#titulo
+			{
+			 top: 0.3in;
+        
+			background-color: #d3d7cf;
+			border-radius:3px; 
+			}
+		#titulos
+			{
+			background-color: #729fcf;
+			
+			border-radius:3px; 
+			}
+		#registros
+			{
+			background-color: #b2e3c5;
+			}
+		table { 
+			border-bottom: 1px solid #999;
+			border-top: 1px solid #999;
+			border-left: 1px solid #999;
+			border-right: 1px solid #999;
+			}
+		#izquierda
+		{
+			    top: 0.3in;
+                
+                margin-right: 0.5in;
+            
+		}
+		@page {
+            size: letter portrait;
+            margin: 1.0in 0.25in 0.5in 0.25in;
+            padding: 0;
+
+            @frame header {
+                -pdf-frame-content: headerContent;
+                width: 8in;
+                top: 0.3in;
+                margin-left: 0.5in;
+                margin-right: 0.5in;
+                height: 1.0in;
+            }
+            @frame footer {
+                -pdf-frame-content: footerContent;
+                width: 8in;
+                bottom: 0in;
+                margin-left: 2cm;
+                margin-right: 2cm;
+                height: 1cm;
+            }
+        }
+
+        <!-- add content styles here -->
+        h1 { text-align: middle; font-size: 18px; }
+	</style>
+	
+	</head>
+	<body>
+
+
+ 
+<div id='headerContent'>
+    <!-- header content -->
+<pre>
+<h1>DGCFT                               SEP                                          MENS
+                                CLAVE:30PVT0515E
+</h1>
+</pre>
+
+    		<h1 id="" align="center">
+    			
+		<img  id="izquierda" src="/home/flor/proyectos/iicea/static/img/icea.jpg" height="80px" width="80px"/> 
+	&nbsp;&nbsp;INSTITUTO DE  INFORMATICA Y CAPACITACION EMPRESARIAL DE ALAMO A.C.
+		<img  id="derecha" src="/home/flor/proyectos/iicea/static/img/icea.jpg" height="80px" width="80px"/>
+
+		</h1>
+			<!-- {{msg}} -->
+
+</div>
+<div>
+    <keepinframe>
+     <!-- Content -->
+     <br>
+     <br>
+     <br><br>
+     <br>
+		{% if lista %}
+						<h1>Lista de pagos anuales</h1>
+			<table >
+					<theader>
+
+						<tr id="titulos">
+							<td align="center"><h4>Usuario</h4></td>
+							<td align="center"><h4>Concepto de pago</h4></td>
+							<td align="center"><h4>Facha</h4></td>
+							<td align="center"><h4>Cantidad</h4></td>
+						</tr>
+						
+					</theader>
+			{% for p in lista %}
+					<tbody>
+						<tr id="registros">
+							<td align="center">{{ p.Cliente.Nombre}}</td>
+							<td align="center">{{p.concepto_pago}}</td>
+							<td align="center">{{p.Fecha_Pago}}</td>
+							<td align="center">{{p.Total_Pagar}}</td>
+						</tr>
+					</tbody>
+			{% endfor %}
+			</table>
+		{% else %}
+			<p>No se han encontrado  pagos</p>
+		{% endif %}
+ 
+    </keepinframe>
+</div>
+<div id='footerContent'>
+    <!-- footer content -->
+    
+    <pdf:pagenumber>
+</div>
+	</body>
+</html>
+
+
+
+

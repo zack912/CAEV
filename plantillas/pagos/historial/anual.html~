@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+
+{% block titulo %} Registrando {% endblock %}
+
+{% block contenido %}
+<br>
+<br>   
+<div class="col-sm-6">
+
+  {% if lista_pagos  %}
+        
+<table class="table table-bordered">
+  <thead>
+      <tr>
+          <th>
+            Nombre
+          </th>   
+            
+    </tr>
+  </thead>
+<tbody>
+
+      {% for c in lista_pagos %}
+        <tr>
+         <td> <a href="#"> {{ c.Cliente.Nombre}}</a>  <a href="{% url 'pdf_pagos_anuales_cliente' c.Cliente.id %}"><button class="btn btn-primary" >PDF</button></a>	</td> 
+            
+        </tr>
+        {% endfor %}
+
+      
+ 
+</tbody>
+</table>
+<a target="_blank" href="{% url 'pdf_pagos_anuales' %}"><button class="btn btn-primary ">PDF</button></a>
+  {% else %}
+<h1>       No se ha encontrado pagos</h1>
+  {% endif %}
+
+  </div>
+  
+
+{% endblock %}

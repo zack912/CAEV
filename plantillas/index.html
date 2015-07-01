@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %} CAEV {% endblock %}
+
+{% block contenido %}
+  
+ <div class="page-header">
+        <h1>Panels</h1>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+            
+            </div>
+          </div>
+        
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+            <h1>Usuario: {{user.username}}</h1>
+            <h3>Nombre : {{user.Nombre}}</h3>
+            
+      </div>
+          </div>
+
+        </div><!-- /.col-sm-4 -->
+      </div>
+{% endblock %}
+
+
+
+
+
+
+
+

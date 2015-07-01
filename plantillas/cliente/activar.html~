@@ -1,0 +1,113 @@
+{% extends 'base.html'%}
+
+{% block titulo %} Cliente{% endblock %}
+
+
+{% block contenido %}
+<br>
+<br>
+   <div class="jumbotron">
+        <div class="col-sm-6">
+        <label for="buscar">Buscar</label>
+        <input id="busqueda" type="text" class="form-control" placeholder="escribe lo que buscas">
+        <br>
+        <button id="btn_zona" type="button" class="btn btn-primary" onClick="buscar_por_zona();" >Buscar Zona</button>
+        <button id="btn-nombre" type="button" class="btn btn-primary" onClick="buscar_por_nombre();" >Buscar Nombre</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h4>Lista de todos los usuarios que estan activos</h4> <a href="{% url 'vista_lista_cliente_inactivos' %}">Ver todos los usuarios inactivos</a>
+     <script type="text/javascript">
+     function buscar_por_zona(){
+     var busqueda = document.getElementById("busqueda").value;
+      if (busqueda != "") {
+      alert("Usted ha buscado ....."+busqueda);
+      window.location.href = "/cliente/zona/"+busqueda;
+      }else{
+        alert("Ingrese una zona");
+      }
+     }
+    function buscar_por_nombre(){
+      var busqueda = document.getElementById("busqueda").value;
+      if(busqueda != ""){
+      alert("Usted ha buscado ....."+busqueda);
+      window.location.href = "/cliente/nombre/"+busqueda;
+      }else{
+      alert("Por favor ingrese un nombre");
+      }
+      
+     }
+
+
+     
+
+     </script>
+    {% comment %}
+   <!-- <p><a href="{% url 'vista_lista_cliente_add'%}"><h2>Agregar </h2></a></p> -->
+    {% endcomment %}
+   
+<table class="table table-bordered">
+  <thead>
+      <tr>
+        <th>
+          Zona
+        </th>
+        <th>
+          Contrato
+        </th>
+        <th>
+          Digito verificador
+        </th>
+          <th>
+            Nombre
+          </th>
+   
+         
+
+            <th>
+                Editar
+            </th>
+
+          <th>
+                Desactivar
+          </th>
+
+    </tr>
+  </thead>
+<tbody>
+  {% if lista_cliente  %}
+
+      {% for dt in lista_cliente %}
+        <tr>
+         <td>{{ dt.Zona}}</td>   
+         <td>{{ dt.Contrato}}</td>   
+         <td>{{ dt.Dig_verf}}</td>   
+         <td>{{ dt.Nombre}}</td> 
+        
+          
+         
+
+      <td><a  href="{% url 'vista_lista_cliente_edit' dt.id %}"><button class="btn btn-success">Actualizar</button></a></td>
+      <td><button  class="btn btn-danger" onClick="if (confirm('Esta seguro de quiere eliminar {{dt.Nombre}}!')){window.location.href = '{% url 'vista_lista_cliente_del' dt.id %}';};"><i class="icon-minus-sign"></i>Dar de baja</button> </td>
+      <td><a href="#"><button class="btn btn-primary">Historial</button></a></td>
+            
+            </tr>
+        {% endfor %}
+
+        {% else %}
+       nose ha encontrado la lista de Usuarios
+ 
+  {% endif %}
+    
+ 
+</tbody>
+</table>
+ </div>
+
+
+
+
+ {% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block titulo %} CCP{% endblock %}
+
+
+    {% block contenido %}
+       <div class="jumbotron">
+          <h3>Consumo Promedio</h3>
+            <p><a href="{% url 'vista_consumo_promedio_add'%}"><h4>Agregar </h4></a></p>
+	       {% if lista_consumo_promedio  %}
+     	      {% for dt in lista_consumo_promedio %}
+      		<p><h4>{{ dt.nombre}}</h4> <button><a href="{% url 'vista_consumo_promedio_edit' dt.id %}">Actualizar</a></button>
+
+      		 <button  onClick="if (confirm('Esta seguro de quiere eliminar {{dt.nombre}}!')){window.location.href = '{% url 'vista_consumo_promedio_del' dt.id %}';};"><i class="icon-minus-sign"></i>Dar de baja</button></p>
+
+
+     	 	{% endfor %}
+
+    	{% else %}
+    	Nose ha encontrado la lista diametro toma
+	   {% endif %}
+  </div>
+
+{% endblock %}

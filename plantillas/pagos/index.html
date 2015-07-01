@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+
+{% block titulo %} Registrando {% endblock %}
+
+{% block contenido %}
+<br>
+<br>   
+<div class="col-sm-6">
+
+  {% if lista_cliente  %}
+        
+<table class="table table-bordered">
+  <thead>
+      <tr>
+          <th>
+            Nombre
+          </th>   
+            
+    </tr>
+  </thead>
+<tbody>
+
+      {% for c in lista_cliente %}
+        <tr>
+         <td> <a href="{% url 'vista_buscar_contrato' c.Contrato c.Dig_verf %}"> {{ c.Nombre}}</a> </td> 
+            
+        </tr>
+        {% endfor %}
+
+      
+ 
+</tbody>
+</table>
+  {% else %}
+<h1>       No se ha encontrado el contrato</h1>
+  {% endif %}
+
+  </div>
+  
+
+{% endblock %}

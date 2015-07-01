@@ -1,0 +1,70 @@
+{% extends 'base.html'%}
+
+{% block titulo %} Cliente{% endblock %}
+
+{% block contenido %}
+   <div class="jumbotron">
+        <h4>Lista de todos los usuarios que estan inactivos</h4> <a href="{% url 'vista_lista_cliente_activos' %}">Ver todos los usuarios activos</a>
+     
+   
+   
+<table class="table table-bordered">
+  <thead>
+  {% if lista_cliente  %}
+      <tr>
+        <th>
+          Zona
+        </th>
+
+          <th>
+            Nombre
+          </th>
+        
+          <th>
+            Domicilio
+          </th>
+           
+            <th>
+                Editar
+            </th>
+
+          <th>
+                Desactivar
+          </th>
+
+    </tr>
+    {% endif %}
+  </thead>
+<tbody>
+  {% if lista_cliente  %}
+
+      {% for dt in lista_cliente %}
+        <tr>
+         <td>{{ dt.Zona}}</td>   
+         <td>{{ dt.Nombre}}</td> 
+         <td>{{ dt.Calle}}</td>
+          <!--<td>{{ dt.status}}</td> -->
+
+
+      <td><button><a href="{% url 'vista_lista_cliente_edit' dt.id %}">Actualizar</a></button></td>
+      <td><button  onClick="if (confirm('Esta seguro de quiere volver a activar {{dt.Nombre}}!')){window.location.href = '{% url 'vista_lista_cliente_activar' dt.id %}';};"><i class="icon-minus-sign"></i>Activar</button> </td>
+
+            
+            </tr>
+        {% endfor %}
+
+        {% else %}
+        <br>
+       nose ha encontrado la lista de Usuarios
+ 
+  {% endif %}
+    
+ 
+</tbody>
+</table>
+ </div>
+
+
+
+
+ {% endblock %}
